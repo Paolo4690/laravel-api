@@ -5125,7 +5125,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CardPost',
-  props: ['post']
+  props: {
+    'post': Object
+  }
 });
 
 /***/ }),
@@ -5203,7 +5205,8 @@ __webpack_require__.r(__webpack_exports__);
       firstPageUrl: null,
       lastPageUrl: null,
       nCurrentPage: null,
-      nLastPage: null
+      nLastPage: null,
+      users: []
     };
   },
   components: {
@@ -5211,21 +5214,30 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getData(this.baseApiUrl);
+    this.getUserName();
+    console.log(this.users);
   },
   methods: {
-    getData: function getData(url) {
+    getUserName: function getUserName() {
       var _this = this;
+
+      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://localhost:8000/api/users/').then(function (res) {
+        _this.users = res.data.response;
+      });
+    },
+    getData: function getData(url) {
+      var _this2 = this;
 
       if (url) {
         axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url).then(function (res) {
-          _this.posts = res.data.response.data;
-          _this.prevPageUrl = res.data.response.prev_page_url;
-          _this.nextPageUrl = res.data.response.next_page_url;
-          _this.firstPageUrl = res.data.response.first_page_url;
-          _this.lastPageUrl = res.data.response.last_page_url;
-          _this.nCurrentPage = res.data.response.current_page;
-          _this.nLastPage = res.data.response.last_page;
-          _this.nNewPage = null;
+          _this2.posts = res.data.response.data;
+          _this2.prevPageUrl = res.data.response.prev_page_url;
+          _this2.nextPageUrl = res.data.response.next_page_url;
+          _this2.firstPageUrl = res.data.response.first_page_url;
+          _this2.lastPageUrl = res.data.response.last_page_url;
+          _this2.nCurrentPage = res.data.response.current_page;
+          _this2.nLastPage = res.data.response.last_page;
+          _this2.nNewPage = null;
         })["catch"](function (error) {
           console.log(error);
         });
@@ -50681,7 +50693,7 @@ var render = function () {
     }),
     _vm._v(" "),
     _c("div", { staticClass: "card-body d-flex flex-column" }, [
-      _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.post.title))]),
+      _c("h4", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.post.title))]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.post.content))]),
     ]),

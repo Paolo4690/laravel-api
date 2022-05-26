@@ -6,7 +6,7 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4">
 
             <div class="col mb-4 d-flex" v-for="post in posts" :key="post.id">
-                <card-post :post="post" />
+                <card-post :post="post"/>
             </div>
 
         </div>
@@ -68,6 +68,7 @@ export default {
             nCurrentPage: null,
             nLastPage: null,
 
+            users: [],
         }
     },
     components: {
@@ -75,9 +76,16 @@ export default {
     },
     created() {
         this.getData(this.baseApiUrl)
-
+        this.getUserName()
+        console.log(this.users)
     },
     methods: {
+        getUserName() {
+            return Axios.get('http://localhost:8000/api/users/')
+                .then(res => {
+                    this.users = res.data.response;
+                })
+        },
         getData(url) {
 
             if(url) {

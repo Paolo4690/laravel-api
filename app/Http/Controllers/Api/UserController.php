@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Post;
+use App\User;
 
-class PostController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(8);
+        $users = User::all();
 
         return response()->json([
             'status' => 'success',
-            'response' => $posts
+            'response' => $users
         ]);
     }
 

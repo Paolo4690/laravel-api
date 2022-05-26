@@ -2,7 +2,7 @@
     <div class="card">
         <img class="card-img-top" :src="post.image" :alt="post.title">
         <div class="card-body d-flex flex-column">
-            <h5 class="card-title">{{ post.title }}</h5>
+            <h4 class="card-title">{{ post.title }}</h4>
             <p class="card-text">{{ post.content }}</p>
         </div>
         <ul class="list-group list-group-flush">
@@ -22,7 +22,10 @@
 <script>
 export default {
     name: 'CardPost',
-    props: ['post']
+    props: {
+        'post': Object,
+
+        },
 }
 </script>
 
