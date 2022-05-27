@@ -16,7 +16,7 @@ use Psy\Util\Str;
 
 class PostController extends Controller
 {
-
+    use \App\Traits\searchFilters;
     private function getValidators($model) {
         return [
             // 'user_id'   => 'required|exists:App\User,id',
@@ -34,29 +34,9 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-
-        $posts = Post::where('id', '>', 0);
-
-        if ($request->searchTitle) {
-            $posts->where(function($query) use ($request) {
-                $query->where('title', 'like', "%$request->searchTitle%")
-                    ->orWhere('content', 'like', "%$request->searchTitle%");
-            });
-            $posts->where('title', 'like', "%$request->searchTitle%");
-        }
-
-        if($request->category) {
-            $posts->where('category_id', $request->category);
-        }
-
-        if($request->author) {
-            $posts->where('user_id', $request->author);
-        }
+        $posts = $this->composeQuery($request);
 
         $posts = $posts->paginate(20);
-
-        $categories = Category::all();
-        $users = User::all();
 
         $queries = $request->query();
         unset($queries['page']);
@@ -64,10 +44,14 @@ class PostController extends Controller
 
 
 
+        $categories = Category::all();
+        $users = User::all();
+
         return view('admin.posts.index', [
             'posts'      => $posts,
             'categories' => $categories,
-            'users'      => $users
+            'users'      => $users,
+            'request'    => $request
         ]);
     }
 

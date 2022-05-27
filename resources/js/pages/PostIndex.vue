@@ -55,7 +55,7 @@ export default {
         return {
             posts: [],
 
-            baseApiUrl: 'http://localhost:8000/api/posts',
+            baseApiUrl: 'http://localhost:8000/api/v1/posts',
 
             nNewPage: null,
 
@@ -68,7 +68,6 @@ export default {
             nCurrentPage: null,
             nLastPage: null,
 
-            users: [],
         }
     },
     components: {
@@ -76,15 +75,8 @@ export default {
     },
     created() {
         this.getData(this.baseApiUrl)
-        this.getUserName()
     },
     methods: {
-        getUserName() {
-            return Axios.get('http://localhost:8000/api/users/')
-                .then(res => {
-                    this.users = res.data.response;
-                })
-        },
         getData(url) {
 
             if(url) {
