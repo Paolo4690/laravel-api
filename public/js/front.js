@@ -5166,6 +5166,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'HeaderPost'
 });
@@ -5401,6 +5427,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Page404_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Page404.vue */ "./resources/js/pages/Page404.vue");
+//
+//
+//
 //
 //
 //
@@ -50985,9 +51014,11 @@ var render = function () {
     }),
     _vm._v(" "),
     _c("div", { staticClass: "card-body d-flex flex-column" }, [
-      _c("h4", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.post.title))]),
+      _c("h4", { staticClass: "card-title text-black" }, [
+        _vm._v(_vm._s(_vm.post.title)),
+      ]),
       _vm._v(" "),
-      _c("p", { staticClass: "card-text" }, [
+      _c("p", { staticClass: "card-text text-black" }, [
         _vm._v(_vm._s(_vm.getExcerpt(_vm.post.content))),
       ]),
     ]),
@@ -51072,22 +51103,133 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "nav",
+    { staticClass: "navbar navbar-expand-lg bg-dark navbar-dark" },
     [
-      _c("router-link", { attrs: { to: { name: "home" } } }, [_vm._v("Home")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "postIndex" } } }, [
-        _vm._v("Blog"),
-      ]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "about" } } }, [
-        _vm._v("About us"),
-      ]),
-    ],
-    1
+      _c(
+        "div",
+        { staticClass: "container-fluid" },
+        [
+          _c(
+            "router-link",
+            { staticClass: "navbar-brand", attrs: { to: { name: "home" } } },
+            [_vm._v("Boolpress")]
+          ),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "collapse navbar-collapse",
+              attrs: { id: "navbarSupportedContent" },
+            },
+            [
+              _c("ul", { staticClass: "navbar-nav me-auto mb-2 mb-lg-0" }, [
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link active",
+                        attrs: {
+                          "aria-current": "page",
+                          to: { name: "postIndex" },
+                        },
+                      },
+                      [_vm._v("Visualizza tutti i post")]
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link active",
+                        attrs: {
+                          "aria-current": "page",
+                          to: { name: "about" },
+                        },
+                      },
+                      [_vm._v("About us")]
+                    ),
+                  ],
+                  1
+                ),
+              ]),
+              _vm._v(" "),
+              _vm._m(1),
+            ]
+          ),
+        ],
+        1
+      ),
+    ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-bs-toggle": "collapse",
+          "data-bs-target": "#navbarSupportedContent",
+          "aria-controls": "navbarSupportedContent",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation",
+        },
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon hamb" })]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "navbar-nav mb-2 mb-lg-0" }, [
+      _c("li", { staticClass: "nav-item" }, [
+        _c(
+          "a",
+          {
+            staticClass: "nav-link",
+            attrs: {
+              "aria-current": "page",
+              href: "http://127.0.0.1:8000/login",
+            },
+          },
+          [_vm._v("Accedi")]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _c(
+          "a",
+          {
+            staticClass: "nav-link",
+            attrs: {
+              "aria-current": "page",
+              href: "http://127.0.0.1:8000/register",
+            },
+          },
+          [_vm._v("Registrati")]
+        ),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -51116,7 +51258,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container text-white" }, [
+    return _c("div", { staticClass: " text-white" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-12" }, [
           _c("h1", [_vm._v("404")]),
@@ -51155,7 +51297,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-white" }, [
+    return _c("main", { staticClass: "py-4 container text-white" }, [
       _c("h1", [_vm._v("About us")]),
       _vm._v(" "),
       _c("p", [
@@ -51187,7 +51329,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("main", { staticClass: "py-4 container text-white" }, [
     _vm._m(0),
     _vm._v(" "),
     _c(
@@ -51241,7 +51383,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("main", { staticClass: "py-4 container text-white" }, [
     _vm._m(0),
     _vm._v(" "),
     _c(
@@ -51410,67 +51552,70 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.is404
-    ? _c("page-404")
-    : _vm.post
-    ? _c("div", [
-        _c("h1", { staticClass: "text-white" }, [
-          _vm._v(_vm._s(_vm.post.title)),
-        ]),
-        _vm._v(" "),
-        _c("b", { staticClass: "text-white" }, [
-          _vm._v("Autore: " + _vm._s(_vm.post.user.name)),
-          _c("br"),
-          _vm._v(" "),
-          _vm.post.category
-            ? _c("span", [
-                _vm._v(" Categoria: " + _vm._s(_vm.post.category.name)),
-              ])
-            : _vm._e(),
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "my-2" },
-          _vm._l(_vm.post.tags, function (tag) {
-            return _c("span", { key: tag.id, staticClass: "tag" }, [
-              _vm._v(_vm._s(tag.name)),
-            ])
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "my-2" }, [
-          _c("span", { staticClass: "text-white" }, [
-            _vm._v(
-              "Post creato il: " +
-                _vm._s(_vm.$luxon(_vm.post.created_at, "dd-MM-yyyy"))
+  return _c(
+    "main",
+    { staticClass: "py-4 container text-white" },
+    [
+      _vm.is404
+        ? _c("page-404")
+        : _vm.post
+        ? _c("div", [
+            _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
+            _vm._v(" "),
+            _c("b", [
+              _vm._v("Autore: " + _vm._s(_vm.post.user.name)),
+              _c("br"),
+              _vm._v(" "),
+              _vm.post.category
+                ? _c("span", [
+                    _vm._v(" Categoria: " + _vm._s(_vm.post.category.name)),
+                  ])
+                : _vm._e(),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "my-2" },
+              _vm._l(_vm.post.tags, function (tag) {
+                return _c("span", { key: tag.id, staticClass: "tag" }, [
+                  _vm._v(_vm._s(tag.name)),
+                ])
+              }),
+              0
             ),
-          ]),
-          _c("br"),
-          _vm._v(" "),
-          _c("span", { staticClass: "text-white" }, [
-            _vm._v(
-              "Ultima modifica: " +
-                _vm._s(_vm.$luxon(_vm.post.updated_at, "dd-MM-yyyy"))
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "my-2" }, [
-          _c("img", {
-            staticClass: "img-fluid",
-            attrs: { src: _vm.post.image, alt: _vm.post.title },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "my-2" }, [
-          _c("p", { staticClass: "text-white" }, [
-            _vm._v(_vm._s(_vm.post.content)),
-          ]),
-        ]),
-      ])
-    : _vm._e()
+            _vm._v(" "),
+            _c("div", { staticClass: "my-2" }, [
+              _c("span", [
+                _vm._v(
+                  "Post creato il: " +
+                    _vm._s(_vm.$luxon(_vm.post.created_at, "dd-MM-yyyy"))
+                ),
+              ]),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", [
+                _vm._v(
+                  "Ultima modifica: " +
+                    _vm._s(_vm.$luxon(_vm.post.updated_at, "dd-MM-yyyy"))
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "my-2" }, [
+              _c("img", {
+                staticClass: "img-fluid",
+                attrs: { src: _vm.post.image, alt: _vm.post.title },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "my-2" }, [
+              _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+            ]),
+          ])
+        : _vm._e(),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

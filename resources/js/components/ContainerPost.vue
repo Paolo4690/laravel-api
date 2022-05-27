@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <main class="py-4 container">
         <div class="mt-3 d-flex justify-content-between align-items-center">
             <h1 class="text-white">Posts</h1>
         </div>
@@ -42,7 +42,7 @@
             </ul>
         </nav>
 
-    </div>
+    </main>
 </template>
 
 <script>

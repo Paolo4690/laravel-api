@@ -1,25 +1,28 @@
 <template>
-    <page-404 v-if="is404" />
-    <div v-else-if="post">
-        <h1 class="text-white">{{ post.title }}</h1>
-        <b class="text-white">Autore: {{ post.user.name }}<br>
-            <span v-if="post.category"> Categoria: {{ post.category.name }}</span>
-        </b>
-        <div class="my-2">
-            <span v-for="tag in post.tags" :key="tag.id" class="tag">{{ tag.name }}</span>
-        </div>
-        <div class="my-2">
-            <span class="text-white">Post creato il: {{ $luxon(post.created_at, "dd-MM-yyyy") }}</span><br>
-            <span class="text-white">Ultima modifica: {{ $luxon(post.updated_at, "dd-MM-yyyy") }}</span>
-        </div>
-        <div class="my-2">
-            <img :src="post.image" :alt="post.title" class="img-fluid">
-        </div>
-        <div class="my-2">
-            <p class="text-white">{{ post.content }}</p>
-        </div>
+    <main class="py-4 container text-white">
 
-    </div>
+        <page-404 v-if="is404" />
+        <div v-else-if="post">
+            <h1>{{ post.title }}</h1>
+            <b>Autore: {{ post.user.name }}<br>
+                <span v-if="post.category"> Categoria: {{ post.category.name }}</span>
+            </b>
+            <div class="my-2">
+                <span v-for="tag in post.tags" :key="tag.id" class="tag">{{ tag.name }}</span>
+            </div>
+            <div class="my-2">
+                <span>Post creato il: {{ $luxon(post.created_at, "dd-MM-yyyy") }}</span><br>
+                <span>Ultima modifica: {{ $luxon(post.updated_at, "dd-MM-yyyy") }}</span>
+            </div>
+            <div class="my-2">
+                <img :src="post.image" :alt="post.title" class="img-fluid">
+            </div>
+            <div class="my-2">
+                <p>{{ post.content }}</p>
+            </div>
+
+        </div>
+        </main>
 
 </template>
 

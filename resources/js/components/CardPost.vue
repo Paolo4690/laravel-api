@@ -2,8 +2,8 @@
     <div class="card">
         <img class="card-img-top" :src="post.image" :alt="post.title">
         <div class="card-body d-flex flex-column">
-            <h4 class="card-title">{{ post.title }}</h4>
-            <p class="card-text">{{ getExcerpt(post.content) }}</p>
+            <h4 class="card-title text-black">{{ post.title }}</h4>
+            <p class="card-text text-black">{{ getExcerpt(post.content) }}</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Pubblicato da: {{ post.user.name }}</li>

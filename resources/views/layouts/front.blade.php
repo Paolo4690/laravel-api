@@ -16,13 +16,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-dark">
-    @include('partials.headeradmin')
 
-    <main class="py-4">
-        <div id="app">
-            @yield('content')
-        </div>
-    </main>
+    <div id="app">
+        @yield('content')
+    </div>
 
 </body>
 </html>

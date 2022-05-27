@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <main class="py-4 container text-white">
         <div class="mt-3 d-flex justify-content-between align-items-center">
             <h1 class="text-white">4 Post random</h1>
         </div>
@@ -11,7 +11,7 @@
 
         </div>
 
-    </div>
+    </main>
 </template>
 
 <script>

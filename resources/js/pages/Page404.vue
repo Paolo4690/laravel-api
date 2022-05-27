@@ -1,5 +1,5 @@
 <template>
-    <div class="container text-white">
+    <div class=" text-white">
         <div class="row">
             <div class="col-md-12">
                 <h1>404</h1>
