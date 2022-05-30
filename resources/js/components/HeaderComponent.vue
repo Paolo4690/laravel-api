@@ -13,7 +13,10 @@
                         <router-link class="nav-link active" aria-current="page" :to="{ name:'postIndex' }">Visualizza tutti i post</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link active" aria-current="page" :to="{ name:'about' }">About us</router-link>
+                        <router-link class="nav-link active" aria-current="page" :to="{ name:'about' }">Chi siamo</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link active" aria-current="page" :to="{ name:'contact' }">Contact</router-link>
                     </li>
 
                 </ul>

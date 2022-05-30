@@ -15,7 +15,7 @@
                 <span>Ultima modifica: {{ $luxon(post.updated_at, "dd-MM-yyyy") }}</span>
             </div>
             <div class="my-2">
-                <img :src="post.image" :alt="post.title" class="img-fluid">
+                <img :src="post.image_url" :alt="post.title" class="img-fluid">
             </div>
             <div class="my-2">
                 <p>{{ post.content }}</p>

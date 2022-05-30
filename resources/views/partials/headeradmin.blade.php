@@ -8,13 +8,19 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('homepage') }}">Visualizza tutti i post</a>
+                    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/blog">Visualizza tutti i post</a>
                 </li>
                 @auth
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('admin.posts.index') }}">Visualizza tutti i post (login)</a>
                     </li>
                 @endauth
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/about">Chi siamo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/contact">Contatti</a>
+                </li>
             </ul>
 
 

@@ -9,6 +9,7 @@ use App\Category;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Route;
@@ -26,6 +27,7 @@ class PostController extends Controller
                 Rule::unique('posts')->ignore($model),
                 'max:100'
             ],
+            // 'image'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category_id' => 'required|exists:App\Category,id',
             'content'     => 'required',
             'tags'        => 'array|exists:App\Tag,id',
@@ -66,9 +68,14 @@ class PostController extends Controller
     {
         $request->validate($this->getValidators(null));
 
-        $formData = $request->all() + [
-            'user_id' => Auth::user()->id
-        ];
+        $data = $request->all();
+
+        $img_path = Storage::put('uploads', $data['image']);
+
+        $formData = [
+            'user_id' => Auth::user()->id,
+            'image' => $img_path
+        ] + $data;
 
 
 
@@ -120,8 +127,18 @@ class PostController extends Controller
 
         $formData = $request->all();
 
+        if(array_key_exists('image', $formData)) {
+            Storage::delete($post->image);
+            $img_path = Storage::put('uploads', $formData['image']);
+            $formData = [
+                'image' => $img_path
+            ] + $formData;
+        }
+
         $post->update($formData);
-        $post->tags()->sync($formData['tags']);
+        if( array_key_exists('tags', $formData)) {
+            $post->tags()->sync($formData['tags']);
+        }
 
         return redirect()->route('admin.posts.show', $post->slug);
     }

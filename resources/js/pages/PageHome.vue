@@ -54,11 +54,4 @@ export default {
 </script>
 
 <style>
-    .page-link {
-        cursor: pointer;
-    }
-    .form-control {
-        text-align: center;
-        width: 100px;
-    }
 </style>

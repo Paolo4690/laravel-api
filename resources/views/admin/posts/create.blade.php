@@ -9,7 +9,7 @@
                 <h1 class="text-white">Crea un nuovo post</h1>
                 <a href="{{ route('admin.posts.index') }}" class="btn btn-success float-right">Torna alla lista</a>
         </div>
-        <form action="{{ route('admin.posts.store') }}" method="POST">
+        <form action="{{ route('admin.posts.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group text-white">
 
@@ -31,13 +31,23 @@
                 @enderror
                 <br>
 
-                <label for="image">Inserisci il link dell'immagine: </label>
-                <input type="url" name="image" id="image" class="form-control mb-3" value="{{ old('image') }}" >
+                <label for="formFile" class="form-label">Default file input example</label>
+                <input class="form-control" type="file" id="formFile" name="image" accept="image/*">
                 @error('image')
                     <div class="alert alert-danger mt-3" role="alert">
                         {{ $message }}
                     </div>
                 @enderror
+                <br>
+
+
+                {{-- <label for="image">Inserisci il link dell'immagine: </label>
+                <input type="url" name="image" id="image" class="form-control mb-3" value="{{ old('image') }}" >
+                @error('image')
+                    <div class="alert alert-danger mt-3" role="alert">
+                        {{ $message }}
+                    </div>
+                @enderror --}}
 
                 <label for="category_id">Seleziona la categoria: </label>
                 <select name="category_id" id="category_id" class="form-control mb-3">

@@ -115,7 +115,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .page-link {
         cursor: pointer;
     }

@@ -3,6 +3,26 @@
         <div class="mt-3 d-flex justify-content-between align-items-center">
             <h1 class="text-white">Posts</h1>
         </div>
+            <form action="" method="GET">
+                <div class="form-group">
+                    <label class="text-white" for="title">Filtri:</label>
+                    <input type="text" name="searchTitle" placeholder="Cerca per titolo" class="form-control mb-2 w-100" id="title"  value="">
+
+                    <!-- <select name="category" id="category" class="form-control mb-2 w-100">
+                        <option value="" selected>Seleziona una categoria</option>
+                        <option v-for="category in posts.category" :key="category.id" :value="$category.id">{{ $category.name }}</option>
+                    </select>
+
+                    <select name="author" id="author" class="form-control mb-2 w-100">
+                        <option value="" selected>Seleziona un autore</option>
+                        <option v-for="user in posts.user" :key="user.id" :value="user.id">{{ $user.name }}</option>
+                    </select> -->
+
+
+                </div>
+
+                <button class="btn btn-primary mb-2">Applica filtri</button>
+            </form>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4">
 
             <div class="col mb-4 d-flex" v-for="post in posts" :key="post.id">
@@ -26,7 +46,7 @@
 
                 <li class="page-item">
                     <form @submit.prevent="getData(baseApiUrl + '/?page=' + nNewPage)">
-                        <input class="form-control" type="text" placeholder="Pagina" v-model="nNewPage">
+                        <input class="form-control nPage" type="text" placeholder="Pagina" v-model="nNewPage">
                     </form>
                 </li>
 
@@ -83,6 +103,7 @@ export default {
                 Axios.get(url)
                     .then(res => {
                         this.posts = res.data.response.data;
+
                         this.prevPageUrl = res.data.response.prev_page_url;
                         this.nextPageUrl = res.data.response.next_page_url;
 
@@ -111,7 +132,7 @@ export default {
     .page-link {
         cursor: pointer;
     }
-    .form-control {
+    .nPage {
         text-align: center;
         width: 100px;
     }

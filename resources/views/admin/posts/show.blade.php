@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-12 col-md-3">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ $post->image }}" alt="{{ $post->title }}">
+                    <img class="card-img-top" src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}">
                     <div class="card-body">
                     <h5 class="card-title">{{ $post->title }}</h5>
                     </div>
